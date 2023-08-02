@@ -8,6 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="bin\picSci.JPG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\numbtn111.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\numbtn33.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\numbtn22.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
