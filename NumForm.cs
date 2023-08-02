@@ -15,10 +15,17 @@ namespace Gandi
 {
     public partial class NumForm : Form
     {
-        int totalScore = 0;
-        int count = 1;
+        int totalScore = 0; // 점수 
+        int count = 1; // 순서 확인할 수
+
+        int remainingSeconds;
+
 
         Random random;
+
+
+
+
         // 초기화면
         public NumForm()
         {
@@ -92,6 +99,12 @@ namespace Gandi
             label16.Location = new Point(20, 25);
             ///
 
+
+            lbcnt.BackColor = Color.Transparent;
+
+
+
+            // 눌렀을 때 픽쳐박스 안 보이게
             picNo1.Visible = false;
             picNo2.Visible = false;
             picNo3.Visible = false;
@@ -116,7 +129,7 @@ namespace Gandi
             // 라벨 - 랜덤하게
             lbArr();
 
-
+            // 라벨에 이벤트 추가
             label1.Click += label_Click;
             label2.Click += label_Click;
             label3.Click += label_Click;
@@ -135,22 +148,25 @@ namespace Gandi
             label16.Click += label_Click;
 
             // 값들 초기화
-            score.Text = "  0";
-            picNo1.Visible = false;
-            totalScore = 0;
-            proBar.Value = 0;
+            score.Text = "  0"; // 점수 표시 라벨
+            totalScore = 0; // 전체 점수 초기화
+            proBar.Value = 0; // 프로그래스바 초기화
+            lbEndScore.Visible = false; // 최종 점수 미표시
 
-            lbEndScore.Visible = false; timer1.Start();
+            lbcnt.Visible = true;
+
+            timer2.Interval = 1000; // 1초마다 타이머 이벤트 발생
+            timer2.Tick += timer2_Tick;
+
+            remainingSeconds = 4;
+
+            // 타이머추가 - 프로그래스바 이동
+            timer2.Start();
 
 
         }
 
-        void cnt()
-        {
-
-        }
-
-
+        // 라벨 - 랜덤으로
         void lbArr()
         {
             Random random = new Random();
@@ -168,6 +184,7 @@ namespace Gandi
                 }
             }
 
+            // 라벨 텍스트값으로 랜덤한 값 넣어주기
             label1.Text = arr[0].ToString();
             label2.Text = arr[1].ToString();
             label3.Text = arr[2].ToString();
@@ -187,33 +204,93 @@ namespace Gandi
 
         }
 
+        private void Reloadf()
+        {
+            count = 1;
+            lbArr();
+
+            picNo1.Visible = false;
+            picNo2.Visible = false;
+            picNo3.Visible = false;
+            picNo4.Visible = false;
+            picNo5.Visible = false;
+            picNo6.Visible = false;
+            picNo7.Visible = false;
+            picNo8.Visible = false;
+            picNo9.Visible = false;
+            picNo10.Visible = false;
+            picNo11.Visible = false;
+            picNo12.Visible = false;
+            picNo13.Visible = false;
+            picNo14.Visible = false;
+            picNo15.Visible = false;
+            picNo16.Visible = false;
+
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = true;
+            pictureBox3.Visible = true;
+            pictureBox4.Visible = true;
+            pictureBox5.Visible = true;
+            pictureBox6.Visible = true;
+            pictureBox7.Visible = true;
+            pictureBox8.Visible = true;
+            pictureBox9.Visible = true;
+            pictureBox10.Visible = true;
+            pictureBox11.Visible = true;
+            pictureBox12.Visible = true;
+            pictureBox13.Visible = true;
+            pictureBox14.Visible = true;
+            pictureBox15.Visible = true;
+            pictureBox16.Visible = true;
 
 
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
+            label6.Visible = true;
+            label7.Visible = true;
+            label8.Visible = true;
+            label9.Visible = true;
+            label10.Visible = true;
+            label11.Visible = true;
+            label12.Visible = true;
+            label13.Visible = true;
+            label14.Visible = true;
+            label15.Visible = true;
+            label16.Visible = true;
+
+            
+
+        }
+        // 클릭 이벤트 발생
         private void label_Click(object sender, EventArgs e)
         {
-            List<Label> lab = new List<Label> { };
 
-            // 클릭 이벤트가 발생한 라벨을 가져옵니다.
+            // 클릭 이벤트가 발생한 라벨을 가져옴
             Label clickedLabel = sender as Label;
 
-            // 라벨의 텍스트 값을 가져옵니다.
+            // 라벨의 텍스트 값을 가져옴
             string labelText = clickedLabel.Text;
 
-            // 텍스트 값이 "1"인지 확인합니다.+
-
+            // 라벨 클릭 이벤트가 발생하면
             if (clickedLabel.Enabled == true)
             {
+                // 라벨 텍스트가 1인지 먼저 확인 (1부터 누르니까)
                 if (labelText == "1")
                 {
-                    // 텍스트 값이 "1"이면 원하는 동작을 수행합니다.
+                    // 1이 맞으면 1 라벨 & 픽쳐박스 숨기기, 눌렸을 때 픽쳐박스 보이게 하기
                     clickedLabel.Visible = false;
                     clickedLabel.Parent.Visible = false;
                     picNo1.Location = clickedLabel.Parent.Location;
                     picNo1.Visible = true;
 
+                    // 맞췄을 경우 점수 +10
                     totalScore += 10;
                     score.Text = totalScore.ToString();
                     count++;
+                    // 1이 눌렸으니 다음 순서는 2여야함. 
 
 
                 }
@@ -223,7 +300,7 @@ namespace Gandi
                     clickedLabel.Parent.Visible = false;
                     picNo2.Location = clickedLabel.Parent.Location;
                     picNo2.Visible = true;
-                    
+
 
                     totalScore += 10;
                     score.Text = totalScore.ToString();
@@ -382,8 +459,13 @@ namespace Gandi
                     totalScore += 10;
                     score.Text = totalScore.ToString();
                     count++;
+
+
+                    Reloadf();
+
+
                 }
-                else
+                else // 틀렸으면 -5 점
                 {
                     totalScore -= 5;
                     score.Text = totalScore.ToString();
@@ -392,17 +474,22 @@ namespace Gandi
             }
         }
 
+        // 타이머 작동 이벤트
         private void timer1_Tick(object sender, EventArgs e)
         {
-            proBar.Value++;
+            EnableControls(true);
+            lbcnt.Visible = false;
+            proBar.Value++; // 프로그래스바 올라가게
 
-            if (proBar.Value == 100)
+            if (proBar.Value == 200) // 프로그래스바 끝나면
             {
-                timer1.Stop();
+                timer1.Stop(); // 타이머 멈추기
 
+                // 최종 점수 표시
                 lbEndScore.Location = new Point(58, 257);
                 lbEndScore.Text = "score : " + totalScore.ToString();
 
+                // 라벨 미표시
                 label1.Visible = false;
                 label2.Visible = false;
                 label3.Visible = false;
@@ -420,6 +507,7 @@ namespace Gandi
                 label15.Visible = false;
                 label16.Visible = false;
 
+                // 픽쳐박스 미표시
                 pictureBox1.Visible = false;
                 pictureBox2.Visible = false;
                 pictureBox3.Visible = false;
@@ -437,6 +525,7 @@ namespace Gandi
                 pictureBox15.Visible = false;
                 pictureBox16.Visible = false;
 
+                // 눌렸을 때 픽쳐박스 미표시
                 picNo1.Visible = false;
                 picNo2.Visible = false;
                 picNo3.Visible = false;
@@ -454,17 +543,36 @@ namespace Gandi
                 picNo15.Visible = false;
                 picNo16.Visible = false;
 
-
+                // 최종점수만 표시
                 lbEndScore.Visible = true;
-
-
-
             }
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            EnableControls(false);
+            remainingSeconds--;
 
+            if (remainingSeconds > 0)
+            {
+                // 남은 시간을 라벨에 출력
+                lbcnt.Text = remainingSeconds.ToString();
+            }
+            else
+            {
+                timer2.Stop();
+                timer1.Start();
+            }
         }
+
+        private void EnableControls(bool enable)
+        {
+            // 폼의 모든 컨트롤을 활성화 또는 비활성화합니다.
+            foreach (Control control in this.Controls)
+            {
+                control.Enabled = enable;
+            }
+        }
+
     }
 }

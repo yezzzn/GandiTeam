@@ -67,7 +67,6 @@
             label17 = new System.Windows.Forms.Label();
             timer1 = new System.Windows.Forms.Timer(components);
             lbEndScore = new System.Windows.Forms.Label();
-            timer2 = new System.Windows.Forms.Timer(components);
             picNo2 = new System.Windows.Forms.PictureBox();
             picNo3 = new System.Windows.Forms.PictureBox();
             picNo4 = new System.Windows.Forms.PictureBox();
@@ -83,6 +82,8 @@
             picNo14 = new System.Windows.Forms.PictureBox();
             picNo15 = new System.Windows.Forms.PictureBox();
             picNo16 = new System.Windows.Forms.PictureBox();
+            lbcnt = new System.Windows.Forms.Label();
+            timer2 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -455,11 +456,12 @@
             // 
             // proBar
             // 
-            proBar.BackColor = System.Drawing.Color.White;
+            proBar.BackColor = System.Drawing.Color.DimGray;
             proBar.CustomText = "";
             proBar.Location = new System.Drawing.Point(12, 12);
+            proBar.Maximum = 200;
             proBar.Name = "proBar";
-            proBar.ProgressColor = System.Drawing.Color.LightGreen;
+            proBar.ProgressColor = System.Drawing.Color.Aqua;
             proBar.Size = new System.Drawing.Size(460, 30);
             proBar.TabIndex = 32;
             proBar.TextColor = System.Drawing.Color.Black;
@@ -508,15 +510,11 @@
             lbEndScore.BackColor = System.Drawing.Color.RoyalBlue;
             lbEndScore.Font = new System.Drawing.Font("Cooper Black", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             lbEndScore.ForeColor = System.Drawing.Color.White;
-            lbEndScore.Location = new System.Drawing.Point(62, -1);
+            lbEndScore.Location = new System.Drawing.Point(59, 147);
             lbEndScore.Name = "lbEndScore";
             lbEndScore.Size = new System.Drawing.Size(369, 74);
             lbEndScore.TabIndex = 36;
             lbEndScore.Text = "score : 100";
-            // 
-            // timer2
-            // 
-            timer2.Tick += timer2_Tick;
             // 
             // picNo2
             // 
@@ -668,12 +666,28 @@
             picNo16.TabIndex = 51;
             picNo16.TabStop = false;
             // 
+            // lbcnt
+            // 
+            lbcnt.AutoSize = true;
+            lbcnt.Font = new System.Drawing.Font("Cooper Black", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbcnt.Location = new System.Drawing.Point(198, 60);
+            lbcnt.Name = "lbcnt";
+            lbcnt.Size = new System.Drawing.Size(105, 110);
+            lbcnt.TabIndex = 52;
+            lbcnt.Text = "3";
+            // 
+            // timer2
+            // 
+            timer2.Tick += timer2_Tick;
+            // 
             // NumForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.RoyalBlue;
             ClientSize = new System.Drawing.Size(484, 661);
+            Controls.Add(lbcnt);
+            Controls.Add(lbEndScore);
             Controls.Add(picNo16);
             Controls.Add(picNo15);
             Controls.Add(picNo14);
@@ -689,7 +703,6 @@
             Controls.Add(picNo4);
             Controls.Add(picNo3);
             Controls.Add(picNo2);
-            Controls.Add(lbEndScore);
             Controls.Add(label17);
             Controls.Add(picNo1);
             Controls.Add(score);
@@ -804,7 +817,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbEndScore;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.PictureBox picNo2;
         private System.Windows.Forms.PictureBox picNo3;
         private System.Windows.Forms.PictureBox picNo4;
@@ -820,5 +832,7 @@
         private System.Windows.Forms.PictureBox picNo14;
         private System.Windows.Forms.PictureBox picNo15;
         private System.Windows.Forms.PictureBox picNo16;
+        private System.Windows.Forms.Label lbcnt;
+        private System.Windows.Forms.Timer timer2;
     }
 }
