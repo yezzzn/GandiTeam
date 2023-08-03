@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NumGame));
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -84,6 +85,7 @@
             picNo16 = new System.Windows.Forms.PictureBox();
             lbcnt = new System.Windows.Forms.Label();
             timer2 = new System.Windows.Forms.Timer(components);
+            button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -120,7 +122,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.numbtn;
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new System.Drawing.Point(12, 173);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(109, 108);
@@ -141,7 +143,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.numbtn;
+            pictureBox2.Image = (System.Drawing.Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new System.Drawing.Point(129, 173);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new System.Drawing.Size(109, 108);
@@ -151,7 +153,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.numbtn;
+            pictureBox3.Image = (System.Drawing.Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new System.Drawing.Point(246, 173);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new System.Drawing.Size(109, 108);
@@ -161,7 +163,7 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = Properties.Resources.numbtn;
+            pictureBox4.Image = (System.Drawing.Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new System.Drawing.Point(363, 173);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new System.Drawing.Size(109, 108);
@@ -171,7 +173,7 @@
             // 
             // pictureBox8
             // 
-            pictureBox8.Image = Properties.Resources.numbtn;
+            pictureBox8.Image = (System.Drawing.Image)resources.GetObject("pictureBox8.Image");
             pictureBox8.Location = new System.Drawing.Point(363, 287);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new System.Drawing.Size(109, 108);
@@ -181,7 +183,7 @@
             // 
             // pictureBox7
             // 
-            pictureBox7.Image = Properties.Resources.numbtn;
+            pictureBox7.Image = (System.Drawing.Image)resources.GetObject("pictureBox7.Image");
             pictureBox7.Location = new System.Drawing.Point(246, 287);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new System.Drawing.Size(109, 108);
@@ -191,7 +193,7 @@
             // 
             // pictureBox6
             // 
-            pictureBox6.Image = Properties.Resources.numbtn;
+            pictureBox6.Image = (System.Drawing.Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new System.Drawing.Point(129, 287);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new System.Drawing.Size(109, 108);
@@ -212,7 +214,7 @@
             // 
             // pictureBox5
             // 
-            pictureBox5.Image = Properties.Resources.numbtn;
+            pictureBox5.Image = (System.Drawing.Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new System.Drawing.Point(12, 287);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new System.Drawing.Size(109, 108);
@@ -222,7 +224,7 @@
             // 
             // pictureBox12
             // 
-            pictureBox12.Image = Properties.Resources.numbtn;
+            pictureBox12.Image = (System.Drawing.Image)resources.GetObject("pictureBox12.Image");
             pictureBox12.Location = new System.Drawing.Point(363, 401);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new System.Drawing.Size(109, 108);
@@ -232,7 +234,7 @@
             // 
             // pictureBox11
             // 
-            pictureBox11.Image = Properties.Resources.numbtn;
+            pictureBox11.Image = (System.Drawing.Image)resources.GetObject("pictureBox11.Image");
             pictureBox11.Location = new System.Drawing.Point(246, 401);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new System.Drawing.Size(109, 108);
@@ -242,7 +244,7 @@
             // 
             // pictureBox10
             // 
-            pictureBox10.Image = Properties.Resources.numbtn;
+            pictureBox10.Image = (System.Drawing.Image)resources.GetObject("pictureBox10.Image");
             pictureBox10.Location = new System.Drawing.Point(129, 401);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new System.Drawing.Size(109, 108);
@@ -263,7 +265,7 @@
             // 
             // pictureBox9
             // 
-            pictureBox9.Image = Properties.Resources.numbtn;
+            pictureBox9.Image = (System.Drawing.Image)resources.GetObject("pictureBox9.Image");
             pictureBox9.Location = new System.Drawing.Point(12, 401);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new System.Drawing.Size(109, 108);
@@ -273,7 +275,7 @@
             // 
             // pictureBox16
             // 
-            pictureBox16.Image = Properties.Resources.numbtn;
+            pictureBox16.Image = (System.Drawing.Image)resources.GetObject("pictureBox16.Image");
             pictureBox16.Location = new System.Drawing.Point(363, 515);
             pictureBox16.Name = "pictureBox16";
             pictureBox16.Size = new System.Drawing.Size(109, 108);
@@ -283,7 +285,7 @@
             // 
             // pictureBox15
             // 
-            pictureBox15.Image = Properties.Resources.numbtn;
+            pictureBox15.Image = (System.Drawing.Image)resources.GetObject("pictureBox15.Image");
             pictureBox15.Location = new System.Drawing.Point(246, 515);
             pictureBox15.Name = "pictureBox15";
             pictureBox15.Size = new System.Drawing.Size(109, 108);
@@ -293,7 +295,7 @@
             // 
             // pictureBox14
             // 
-            pictureBox14.Image = Properties.Resources.numbtn;
+            pictureBox14.Image = (System.Drawing.Image)resources.GetObject("pictureBox14.Image");
             pictureBox14.Location = new System.Drawing.Point(129, 515);
             pictureBox14.Name = "pictureBox14";
             pictureBox14.Size = new System.Drawing.Size(109, 108);
@@ -314,7 +316,7 @@
             // 
             // pictureBox13
             // 
-            pictureBox13.Image = Properties.Resources.numbtn;
+            pictureBox13.Image = (System.Drawing.Image)resources.GetObject("pictureBox13.Image");
             pictureBox13.Location = new System.Drawing.Point(12, 515);
             pictureBox13.Name = "pictureBox13";
             pictureBox13.Size = new System.Drawing.Size(109, 108);
@@ -456,7 +458,7 @@
             // 
             // proBar
             // 
-            proBar.BackColor = System.Drawing.Color.DimGray;
+            proBar.BackColor = System.Drawing.Color.RoyalBlue;
             proBar.CustomText = "";
             proBar.Location = new System.Drawing.Point(12, 12);
             proBar.Maximum = 200;
@@ -464,9 +466,9 @@
             proBar.ProgressColor = System.Drawing.Color.Aqua;
             proBar.Size = new System.Drawing.Size(460, 30);
             proBar.TabIndex = 32;
-            proBar.TextColor = System.Drawing.Color.Black;
+            proBar.TextColor = System.Drawing.Color.RoyalBlue;
             proBar.TextFont = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            proBar.VisualMode = Moble.ProgressBarDisplayMode.CurrProgress;
+            proBar.VisualMode = Moble.ProgressBarDisplayMode.CustomText;
             // 
             // score
             // 
@@ -481,8 +483,8 @@
             // 
             // picNo1
             // 
-            picNo1.Image = Properties.Resources.nonumbtn;
-            picNo1.Location = new System.Drawing.Point(12, 173);
+            picNo1.Image = (System.Drawing.Image)resources.GetObject("picNo1.Image");
+            picNo1.Location = new System.Drawing.Point(246, 401);
             picNo1.Name = "picNo1";
             picNo1.Size = new System.Drawing.Size(109, 108);
             picNo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -510,7 +512,7 @@
             lbEndScore.BackColor = System.Drawing.Color.RoyalBlue;
             lbEndScore.Font = new System.Drawing.Font("Cooper Black", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             lbEndScore.ForeColor = System.Drawing.Color.White;
-            lbEndScore.Location = new System.Drawing.Point(41, 266);
+            lbEndScore.Location = new System.Drawing.Point(55, 242);
             lbEndScore.Name = "lbEndScore";
             lbEndScore.Size = new System.Drawing.Size(369, 74);
             lbEndScore.TabIndex = 36;
@@ -518,8 +520,8 @@
             // 
             // picNo2
             // 
-            picNo2.Image = Properties.Resources.nonumbtn;
-            picNo2.Location = new System.Drawing.Point(127, 173);
+            picNo2.Image = (System.Drawing.Image)resources.GetObject("picNo2.Image");
+            picNo2.Location = new System.Drawing.Point(363, 287);
             picNo2.Name = "picNo2";
             picNo2.Size = new System.Drawing.Size(109, 108);
             picNo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -528,8 +530,8 @@
             // 
             // picNo3
             // 
-            picNo3.Image = Properties.Resources.nonumbtn;
-            picNo3.Location = new System.Drawing.Point(248, 173);
+            picNo3.Image = (System.Drawing.Image)resources.GetObject("picNo3.Image");
+            picNo3.Location = new System.Drawing.Point(361, 170);
             picNo3.Name = "picNo3";
             picNo3.Size = new System.Drawing.Size(109, 108);
             picNo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -538,8 +540,8 @@
             // 
             // picNo4
             // 
-            picNo4.Image = Properties.Resources.nonumbtn;
-            picNo4.Location = new System.Drawing.Point(363, 173);
+            picNo4.Image = (System.Drawing.Image)resources.GetObject("picNo4.Image");
+            picNo4.Location = new System.Drawing.Point(12, 170);
             picNo4.Name = "picNo4";
             picNo4.Size = new System.Drawing.Size(109, 108);
             picNo4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -548,8 +550,8 @@
             // 
             // picNo5
             // 
-            picNo5.Image = Properties.Resources.nonumbtn;
-            picNo5.Location = new System.Drawing.Point(12, 287);
+            picNo5.Image = (System.Drawing.Image)resources.GetObject("picNo5.Image");
+            picNo5.Location = new System.Drawing.Point(127, 173);
             picNo5.Name = "picNo5";
             picNo5.Size = new System.Drawing.Size(109, 108);
             picNo5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -558,8 +560,8 @@
             // 
             // picNo6
             // 
-            picNo6.Image = Properties.Resources.nonumbtn;
-            picNo6.Location = new System.Drawing.Point(129, 287);
+            picNo6.Image = (System.Drawing.Image)resources.GetObject("picNo6.Image");
+            picNo6.Location = new System.Drawing.Point(127, 401);
             picNo6.Name = "picNo6";
             picNo6.Size = new System.Drawing.Size(109, 108);
             picNo6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -568,8 +570,8 @@
             // 
             // picNo7
             // 
-            picNo7.Image = Properties.Resources.nonumbtn;
-            picNo7.Location = new System.Drawing.Point(248, 287);
+            picNo7.Image = (System.Drawing.Image)resources.GetObject("picNo7.Image");
+            picNo7.Location = new System.Drawing.Point(361, 401);
             picNo7.Name = "picNo7";
             picNo7.Size = new System.Drawing.Size(109, 108);
             picNo7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -578,8 +580,8 @@
             // 
             // picNo8
             // 
-            picNo8.Image = Properties.Resources.nonumbtn;
-            picNo8.Location = new System.Drawing.Point(363, 287);
+            picNo8.Image = (System.Drawing.Image)resources.GetObject("picNo8.Image");
+            picNo8.Location = new System.Drawing.Point(248, 173);
             picNo8.Name = "picNo8";
             picNo8.Size = new System.Drawing.Size(109, 108);
             picNo8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -588,8 +590,8 @@
             // 
             // picNo9
             // 
-            picNo9.Image = Properties.Resources.nonumbtn;
-            picNo9.Location = new System.Drawing.Point(14, 401);
+            picNo9.Image = (System.Drawing.Image)resources.GetObject("picNo9.Image");
+            picNo9.Location = new System.Drawing.Point(12, 515);
             picNo9.Name = "picNo9";
             picNo9.Size = new System.Drawing.Size(109, 108);
             picNo9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -598,8 +600,8 @@
             // 
             // picNo10
             // 
-            picNo10.Image = Properties.Resources.nonumbtn;
-            picNo10.Location = new System.Drawing.Point(129, 401);
+            picNo10.Image = (System.Drawing.Image)resources.GetObject("picNo10.Image");
+            picNo10.Location = new System.Drawing.Point(246, 515);
             picNo10.Name = "picNo10";
             picNo10.Size = new System.Drawing.Size(109, 108);
             picNo10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -608,8 +610,8 @@
             // 
             // picNo11
             // 
-            picNo11.Image = Properties.Resources.nonumbtn;
-            picNo11.Location = new System.Drawing.Point(246, 401);
+            picNo11.Image = (System.Drawing.Image)resources.GetObject("picNo11.Image");
+            picNo11.Location = new System.Drawing.Point(361, 515);
             picNo11.Name = "picNo11";
             picNo11.Size = new System.Drawing.Size(109, 108);
             picNo11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -618,8 +620,8 @@
             // 
             // picNo12
             // 
-            picNo12.Image = Properties.Resources.nonumbtn;
-            picNo12.Location = new System.Drawing.Point(361, 401);
+            picNo12.Image = (System.Drawing.Image)resources.GetObject("picNo12.Image");
+            picNo12.Location = new System.Drawing.Point(127, 515);
             picNo12.Name = "picNo12";
             picNo12.Size = new System.Drawing.Size(109, 108);
             picNo12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -628,8 +630,8 @@
             // 
             // picNo13
             // 
-            picNo13.Image = Properties.Resources.nonumbtn;
-            picNo13.Location = new System.Drawing.Point(12, 515);
+            picNo13.Image = (System.Drawing.Image)resources.GetObject("picNo13.Image");
+            picNo13.Location = new System.Drawing.Point(14, 401);
             picNo13.Name = "picNo13";
             picNo13.Size = new System.Drawing.Size(109, 108);
             picNo13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -638,8 +640,8 @@
             // 
             // picNo14
             // 
-            picNo14.Image = Properties.Resources.nonumbtn;
-            picNo14.Location = new System.Drawing.Point(127, 515);
+            picNo14.Image = (System.Drawing.Image)resources.GetObject("picNo14.Image");
+            picNo14.Location = new System.Drawing.Point(12, 287);
             picNo14.Name = "picNo14";
             picNo14.Size = new System.Drawing.Size(109, 108);
             picNo14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -648,8 +650,8 @@
             // 
             // picNo15
             // 
-            picNo15.Image = Properties.Resources.nonumbtn;
-            picNo15.Location = new System.Drawing.Point(248, 515);
+            picNo15.Image = (System.Drawing.Image)resources.GetObject("picNo15.Image");
+            picNo15.Location = new System.Drawing.Point(127, 287);
             picNo15.Name = "picNo15";
             picNo15.Size = new System.Drawing.Size(109, 108);
             picNo15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -658,8 +660,8 @@
             // 
             // picNo16
             // 
-            picNo16.Image = Properties.Resources.nonumbtn;
-            picNo16.Location = new System.Drawing.Point(363, 515);
+            picNo16.Image = (System.Drawing.Image)resources.GetObject("picNo16.Image");
+            picNo16.Location = new System.Drawing.Point(244, 287);
             picNo16.Name = "picNo16";
             picNo16.Size = new System.Drawing.Size(109, 108);
             picNo16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -669,10 +671,10 @@
             // lbcnt
             // 
             lbcnt.AutoSize = true;
-            lbcnt.Font = new System.Drawing.Font("Cooper Black", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbcnt.Font = new System.Drawing.Font("휴먼둥근헤드라인", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             lbcnt.Location = new System.Drawing.Point(190, 353);
             lbcnt.Name = "lbcnt";
-            lbcnt.Size = new System.Drawing.Size(105, 110);
+            lbcnt.Size = new System.Drawing.Size(112, 101);
             lbcnt.TabIndex = 52;
             lbcnt.Text = "3";
             // 
@@ -680,12 +682,26 @@
             // 
             timer2.Tick += timer2_Tick;
             // 
-            // NumForm
+            // button1
+            // 
+            button1.BackColor = System.Drawing.Color.White;
+            button1.Font = new System.Drawing.Font("휴먼둥근헤드라인", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            button1.ForeColor = System.Drawing.Color.Black;
+            button1.Location = new System.Drawing.Point(163, 335);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(164, 87);
+            button1.TabIndex = 53;
+            button1.Text = "확인";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // NumGame
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.RoyalBlue;
             ClientSize = new System.Drawing.Size(484, 661);
+            Controls.Add(button1);
             Controls.Add(lbcnt);
             Controls.Add(lbEndScore);
             Controls.Add(picNo16);
@@ -739,7 +755,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Name = "NumForm";
+            Name = "NumGame";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -811,12 +827,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private Moble.LabelProgressBar proBar;
         private System.Windows.Forms.Label score;
         private System.Windows.Forms.PictureBox picNo1;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lbEndScore;
         private System.Windows.Forms.PictureBox picNo2;
         private System.Windows.Forms.PictureBox picNo3;
         private System.Windows.Forms.PictureBox picNo4;
@@ -834,5 +847,9 @@
         private System.Windows.Forms.PictureBox picNo16;
         private System.Windows.Forms.Label lbcnt;
         private System.Windows.Forms.Timer timer2;
+        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Label lbEndScore;
+        public Moble.LabelProgressBar proBar;
+        private System.Windows.Forms.Button button1;
     }
 }

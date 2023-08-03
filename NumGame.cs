@@ -1,36 +1,53 @@
-﻿using System;
+﻿using Moble;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Label = System.Windows.Forms.Label;
 
 namespace Gandi
 {
     public partial class NumGame : Form
     {
-        int totalScore = 0; // 점수 
-        int count = 1; // 순서 확인할 수
-
+        public static int totalScore = 0; // 점수 
+        int count = 1; // 순서를 확인할 정수
         int remainingSeconds;
-
+        public static bool endMe = false;
+        public int endScore = 0;
 
         Random random;
 
-
-
+        //델리게이트 선언
+        public delegate void FormSendDataHandler(string sendstring);
+        //이벤트 생성
+        public event FormSendDataHandler FormSendEvent;
 
         // 초기화면
         public NumGame()
         {
             InitializeComponent();
 
+            this.FormClosed += numGame_FormClosed;
+
+            // 폼 시작할 때 스크린의 중앙에
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            // 프로그래스바 커스텀텍스트로 
+            proBar.CustomText = "20.0";
+            proBar.Value = 200;
+
+            button1.Visible = false;
 
             /// 라벨 - 픽쳐박스 배경 투명하게
 
@@ -100,9 +117,6 @@ namespace Gandi
             ///
 
 
-            lbcnt.BackColor = Color.Transparent;
-
-
 
             // 눌렀을 때 픽쳐박스 안 보이게
             picNo1.Visible = false;
@@ -122,8 +136,7 @@ namespace Gandi
             picNo15.Visible = false;
             picNo16.Visible = false;
 
-
-
+            // 랜덤 인스턴스 생성
             random = new Random();
 
             // 라벨 - 랜덤하게
@@ -148,15 +161,16 @@ namespace Gandi
             label16.Click += label_Click;
 
             // 값들 초기화
+
             score.Text = "  0"; // 점수 표시 라벨
             totalScore = 0; // 전체 점수 초기화
-            proBar.Value = 0; // 프로그래스바 초기화
-            lbEndScore.Visible = false; // 최종 점수 미표시
 
-            lbcnt.Visible = true;
+            lbEndScore.Visible = false; // 최종 점수 미표시
+            lbcnt.Visible = true; // 카운트다운 표시
 
             timer2.Interval = 1000; // 1초마다 타이머 이벤트 발생
-            timer2.Tick += timer2_Tick;
+            timer2.Tick += timer2_Tick; // 타이머2 이벤트 연결
+
 
             remainingSeconds = 4;
 
@@ -204,11 +218,16 @@ namespace Gandi
 
         }
 
+        // 폼 재시작 메서드
         private void Reloadf()
         {
+            //순서 저장할 정수 초기화
             count = 1;
+
+            // 라벨 다시 랜덤하게
             lbArr();
 
+            // 숫자 가림판 안보이게
             picNo1.Visible = false;
             picNo2.Visible = false;
             picNo3.Visible = false;
@@ -225,6 +244,7 @@ namespace Gandi
             picNo14.Visible = false;
             picNo15.Visible = false;
             picNo16.Visible = false;
+
 
             pictureBox1.Visible = true;
             pictureBox2.Visible = true;
@@ -460,7 +480,7 @@ namespace Gandi
                     score.Text = totalScore.ToString();
                     count++;
 
-
+                    // 마지막 순서까지 눌렀으면 게임 리로드
                     Reloadf();
 
 
@@ -475,13 +495,28 @@ namespace Gandi
         }
 
         // 타이머 작동 이벤트
-        private void timer1_Tick(object sender, EventArgs e)
+        public void timer1_Tick(object sender, EventArgs e)
         {
+            // 폼 컨트롤 누를 수 있게
             EnableControls(true);
+            // 카운트다운 안 보이게
             lbcnt.Visible = false;
-            proBar.Value++; // 프로그래스바 올라가게
+            proBar.Value--; // 프로그래스바 내려가게
 
-            if (proBar.Value == 200) // 프로그래스바 끝나면
+            // 프로그래스바의 커스텀 텍스트가 10 이상일 땐 파란색으로 
+            if (double.Parse(proBar.CustomText) > 10.0)
+            {
+                proBar.CustomText = string.Format("{0:f1}", double.Parse(proBar.CustomText) - 0.1);
+            }
+            else
+            // 이하일 땐 하얀색으로 폰트 잘 보이게
+            {
+                proBar.TextColor = Color.White;
+                proBar.CustomText = string.Format("{0:f1}", double.Parse(proBar.CustomText) - 0.1);
+            }
+
+
+            if (proBar.Value == 0) // 프로그래스바 끝나면
             {
                 timer1.Stop(); // 타이머 멈추기
 
@@ -545,25 +580,37 @@ namespace Gandi
 
                 // 최종점수만 표시
                 lbEndScore.Visible = true;
+
+                endScore = totalScore;
+                button1.Visible = true;
+
+
             }
+
         }
 
+        // 카운트다운 타이머
         private void timer2_Tick(object sender, EventArgs e)
         {
+            // 컨트롤 동작 제한
             EnableControls(false);
+            // 3, 2, 1 저장할 변수
             remainingSeconds--;
 
-            if (remainingSeconds > 0)
+            if (remainingSeconds > 0) // 3, 2, 1 일 때
             {
                 // 남은 시간을 라벨에 출력
                 lbcnt.Text = remainingSeconds.ToString();
             }
-            else
+            else // 0 일 때
             {
-                timer2.Stop();
-                timer1.Start();
+                timer2.Stop(); // 현재 타이머 멈추기
+                timer1.Start(); // 게임 타이머 시작
             }
         }
+
+        // 컨트롤 동작 메서드 매개변수값이 true - 활성화
+        // false - 비활성화
 
         private void EnableControls(bool enable)
         {
@@ -574,5 +621,21 @@ namespace Gandi
             }
         }
 
+
+        private void numGame_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //// 폼이 닫힌 후 실행할 작업을 추가합니다.
+            //endScore = totalScore;
+            //MessageBox.Show(endScore.ToString());
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //델리게이트 이벤트를통해 폼1(부모폼)으로 데이터 전송
+            this.FormSendEvent(endScore.ToString());
+
+            this.Close();
+        }
     }
 }
